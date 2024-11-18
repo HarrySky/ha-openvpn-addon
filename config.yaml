@@ -1,0 +1,21 @@
+name: "OpenVPN client"
+description: "Home Assistant OpenVPN client add-on"
+version: "1.0.0"
+slug: "openvpn_client"
+init: false
+advanced: true
+startup: "application"
+boot: "auto"
+host_network: true
+privileged:
+  - "NET_ADMIN"
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+options:
+  ovpn_config: ""
+schema:
+  ovpn_config: str
