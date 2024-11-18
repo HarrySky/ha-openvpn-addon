@@ -1,6 +1,6 @@
 name: "OpenVPN client"
 description: "Home Assistant OpenVPN client add-on"
-version: "1.0.0"
+version: "1.0.1"
 slug: "openvpn_client"
 init: false
 advanced: true

@@ -28,7 +28,7 @@ function init_tun_interface(){
 ########################################################################################################################
 function check_config_available(){
     OPENVPN_CONFIG="$(bashio::config 'ovpn_config')"
-    if [[ ! -z "${OPENVPN_CONFIG}" ]] ; then
+    if [[ -z "${OPENVPN_CONFIG}" ]] ; then
         bashio::log.warning "Config is empty!"
         return 1
     fi
