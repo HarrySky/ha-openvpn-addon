@@ -5,21 +5,6 @@ CONFIG_PATH=/data/options.json
 OPENVPN_CONFIG=""
 
 ########################################################################################################################
-# Initialize the tun interface for OpenVPN if not already available
-# Arguments:
-#   None
-# Returns:
-#   None
-########################################################################################################################
-function init_tun_interface(){
-    # create the tunnel for the openvpn client
-    mkdir -p /dev/net
-    if [ ! -c /dev/net/tun ]; then
-        mknod /dev/net/tun c 10 200
-    fi
-}
-
-########################################################################################################################
 # Check if VPN config is set by user
 # Arguments:
 #   None
@@ -57,7 +42,6 @@ function wait_configuration() {
     echo "${OPENVPN_CONFIG}" > /etc/openvpn/client.ovpn
 }
 
-init_tun_interface
 wait_configuration
 bashio::log.info "Starting VPN tunnel"
 openvpn --config /etc/openvpn/client.ovpn
